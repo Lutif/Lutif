@@ -44,12 +44,9 @@ Here are some ideas to get you started:
 <br />
 <br />
 
----
-
-<img align="left" alt="CarlosJSL Github Stats" src="https://github-readme-stats.vercel.app/api?username=Lutif&show_icons=true&hide_border=true&count_private=true" />
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Lutif&hide=Python,BatchFile)](https://github.com/Lutif?tab=repositories)
 
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Lutif)](https://github.com/Lutif/github-readme-stats)
 
 [website]: https://www.imaginebeyond.com.br/
 [facebook]: https://www.facebook.com/lutif
