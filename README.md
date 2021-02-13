@@ -14,9 +14,8 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-### Welcome to my profile, Hi there, I'm Lutif Ali
+### Hi there, I'm Lutif Ali
 
-## I'm a Software Engineer
 
 <!--- - 🔭 I’m currently working at [Beyond Solutions][website]!--->
 - 🥅 2021 Goals: Do more testing
