@@ -18,7 +18,7 @@ Here are some ideas to get you started:
 
 
 <!--- - 🔭 I’m currently working at [Beyond Solutions][website]!--->
-- 🥅 2021 Goals: Do more testing
+- 🥅 2022 Goals: leetcode(ing) the way
 <!--- ⚡ Fun fact: I love to play MMORPG's --->
 
 ### Connect with me:
