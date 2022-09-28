@@ -39,7 +39,6 @@
   <img src="https://img.shields.io/badge/-Jest-383637?style=flat-square&logo=jest&logoColor=C21325" />
   <img src="https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white" />
   <img src="https://img.shields.io/badge/-Git-black?style=flat-square&logo=git" />
-  <img src="https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github" />
   <img src="https://img.shields.io/badge/-macOS-131313?style=flat-square&logo=apple" />
   <img src="https://img.shields.io/badge/-VS%20Code-007ACC?style=flat-square&logo=visual-studio-code" />
   </p>
