@@ -50,7 +50,7 @@
 
 <br />
 
-<img src="https://github-readme-stats.vercel.app/api?username=lutif&&show_icons=true&count_private=true&theme=vue-dark"/>|<img src="https://github-readme-streak-stats.herokuapp.com/?user=lutif&theme=vue-dark&private=true"/>|
+<img src="https://github-readme-stats.vercel.app/api?username=lutif&&show_icons=true&theme=vue-dark"/>|<img src="https://github-readme-streak-stats.herokuapp.com/?user=lutif&theme=vue-dark&private=true"/>|
 |---|---|
 
 
