@@ -33,11 +33,11 @@
   <img src="https://img.shields.io/badge/-TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript" />
   <img src="https://img.shields.io/badge/-React-black?style=flat-square&logo=react" />
+   <img src="https://img.shields.io/badge/-GraphQL-E10098?style=flat-square&logo=graphql" />
   <img src="https://img.shields.io/badge/-Node.js-black?style=flat-square&logo=Node.js" />
   <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge?style=flat-square" />
   <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white" />
   <img src="https://img.shields.io/badge/-React%20Native-black?style=flat-square&logo=react" />
-  <img src="https://img.shields.io/badge/-GraphQL-E10098?style=flat-square&logo=graphql" />
   <img src="https://img.shields.io/badge/-Jest-383637?style=flat-square&logo=jest&logoColor=C21325" />
   <img src="https://img.shields.io/badge/-Git-black?style=flat-square&logo=git" />
   <img src="https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=flat-square&logo=Amazon%20DynamoDB&logoColor=white" />
