@@ -6,11 +6,10 @@
 - 🥅 2023 Goals: rust(ing) away<img src="rust.gif" width="100" height="100" align="center"/>
 
 
-### Connect with me:
+#### Connect with me:
 [<img align="left" alt="Facebook" width="22px" src="https://cdn.iconscout.com/icon/free/png-256/facebook-social-media-fb-logo-square-44659.png" />][facebook]
 [<img align="left" alt="LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
 [<img align="left" alt="devto"  height="22px" src="https://res.cloudinary.com/practicaldev/image/fetch/s--R9qwOwpC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/78hs31fax49uwy6kbxyw.png" />][devTo]
-
 <br />
 
 ### Languages and Tools:
