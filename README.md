@@ -2,7 +2,8 @@
 ### Hi there, I'm Lutif Ali
 
 
-- 🥅 2022 Goals: leetcode(ing) the way
+<!-- - 🥅 2022 Goals: leetcode(ing) the way -->
+- 🥅 2023 Goals: rust(ing) away<img src="rust.gif" width="100" height="100" align="center"/>
 
 
 ### Connect with me:
@@ -29,6 +30,16 @@
 
  -->
 
+
+<!-- <details><summary>Projects</summary>
+
+ <details><summary>Animated Rating for react native
+</summary>
+[Animated Rating for react native](https://github.com/Lutif/react-native-animated-rating)
+
+</details>
+</details> -->
+
 <p>
   <img src="https://img.shields.io/badge/-TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript" />
@@ -50,10 +61,4 @@
 
 <br />
 
-<img src="https://github-readme-stats.vercel.app/api?username=lutif&&show_icons=true&count_private=true&theme=vue-dark"/>|<img src="https://github-readme-streak-stats.herokuapp.com/?user=lutif&theme=vue-dark&private=true"/>|
-|---|---|
-
-
-[facebook]: https://www.facebook.com/lutif
-[linkedin]: https://www.linkedin.com/in/lutifmandhro/
-[devTo]: https://dev.to/lutif
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=lutif&theme=vue-dark&private=true" width="5000"/>
