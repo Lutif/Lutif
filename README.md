@@ -64,4 +64,4 @@
 
 <br />
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=lutif&theme=vue-dark&private=true" width="5000"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=lutif&theme=vue-dark&private=false" width="5000"/>
