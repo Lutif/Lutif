@@ -41,6 +41,7 @@
 [Animated Rating for react native](https://github.com/Lutif/react-native-animated-rating)
 
 </details>
+
 </details> -->
 
 <p>
