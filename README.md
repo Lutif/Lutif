@@ -19,20 +19,6 @@
 ### Languages and Tools:
 <br />
 
-<!--
-<img align="left" alt="JavaScript" width="36px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />
-<img align="left" alt="TypeScript" width="36px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" />
-<img align="left" alt="React" width="36px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />
-<img align="left" alt="React nativ" width="52px" src="https://hackernoon.com/hn-images/1*ub1DguhAtkCLvhUGuVGr6w.png" />
-<img align="left" alt="Vuejs" width="36px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png" />
-<img align="left" alt="Node.js" width="36px" height="34px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" />
-<img align="left" alt="mongodb" width="36px" height="34px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" />
-<img align="left" alt="POSTGRES" width="36px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" />
-<img align="left" alt="Nest" width="36px" src="https://raw.githubusercontent.com/github/explore/e65ef46ef3e7bc457c93622f6a89fe8d3fd131d5/topics/graphql/graphql.png" />
-<img align="left" alt="amplify" width="36px" src="https://dfdmyvckxgqn5.cloudfront.net/images/aws-amplify-466-0881e0b2c1678df1e9ffbe13fd3e9638.png" />
-
- -->
-
 
 <!-- <details><summary>Projects</summary>
 
@@ -49,11 +35,11 @@
   <img height="25px" src="https://img.shields.io/badge/-TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
   <img height="25px" src="https://img.shields.io/badge/-React-black?style=flat-square&logo=react" />
   <img height="25px" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" />
-  <img height="25px" src="https://img.shields.io/badge/-GraphQL-E10098?style=flat-square&logo=graphql" />
+  <img height="24px" src="https://img.shields.io/badge/-GraphQL-E10098?style=flat-square&logo=graphql" />
   <img height="25px" src="https://img.shields.io/badge/-Node.js-black?style=flat-square&logo=Node.js" />
-  <img height="25px" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&style=flat-square" />
+  <img height="25px" src="https://img.shields.io/badge/Express.js-404D59?style=lat-square&style=flat-square" />
   <img height="25px" src="https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white" />
-  <img height="25px" src="https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white" />
+  <img height="24px" src="https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white" />
   <img height="25px" src="https://img.shields.io/badge/-React%20Native-black?style=flat-square&logo=react" />
   <img height="25px" src="https://img.shields.io/badge/-Jest-383637?style=flat-square&logo=jest&logoColor=C21325" />
   <img height="25px" src="https://img.shields.io/badge/-Git-black?style=flat-square&logo=git" />
