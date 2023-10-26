@@ -3,8 +3,7 @@
 
 
 <!-- - 🥅 2022 Goals: leetcode(ing) the way -->
-- 🥅 2023 Goals: rust(ing) away<img src="rust.gif" width="100" height="100" align="center"/>
-
+<!--  🥅 2023 Goals: rust(ing) away<img src="rust.gif" width="100" height="100" align="center"/> -->
 
 #### Connect with me:
 [<img align="left" alt="Facebook" width="22px" src="https://cdn.iconscout.com/icon/free/png-256/facebook-social-media-fb-logo-square-44659.png" />][facebook]
