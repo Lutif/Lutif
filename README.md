@@ -12,7 +12,7 @@
 <br />
 
 [facebook]: https://www.facebook.com/lutif
-[linkedin]: https://www.linkedin.com/in/lutifmandhro/
+[linkedin]: https://www.linkedin.com/in/lutif
 [devTo]: https://dev.to/lutif
 
 ### Languages and Tools:
