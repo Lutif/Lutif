@@ -1,5 +1,5 @@
 
-### Hi there, I'm Lutif Ali
+### Hey there, I'm Lutif Ali
 
 
 <!-- - 🥅 2022 Goals: leetcode(ing) the way -->
