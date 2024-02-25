@@ -48,7 +48,7 @@
 
 <!-- <img src="github-metrics.svg"  align="center"/> -->
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Lutif&hide=BatchFile,html,css,shell)](https://github.com/Lutif?tab=repositories)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Lutif&hide=BatchFile,html,css,shell&layout=donut)](https://github.com/Lutif?tab=repositories)
 
 
 <br />
