@@ -46,9 +46,11 @@
   </p>
 <br />
 
+<!--![github graph](https://github-readme-activity-graph.vercel.app/graph?username=lutif&theme=react-dark)-->
+
 <!-- <img src="github-metrics.svg"  align="center"/> -->
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Lutif&hide=BatchFile,html,css,shell&layout=donut)](https://github.com/Lutif?tab=repositories)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Lutif&hide=BatchFile,html,css,shell&layout=donut&theme=react-dark)](https://github.com/Lutif?tab=repositories)
 
 
 <br />
@@ -136,24 +138,7 @@ _June ‘20 - Feb ‘21_ ![Syntax Squad](https://img.shields.io/badge/-Syntax_Sq
 
 </details>
 
-## 🎓 Academics
-<details>
-<summary>Click to expand!</summary>
 
-- BS in Electrical Engineering, National University of Computer and Emerging Sciences
-- CGPA: 3.5/4
-
-</details>
-
-## 🏆 Awards
-<details>
-<summary>Click to expand!</summary>
-
-- Prime Minister’s National ICT Scholarship Award for BSc EE
-- Rector List (Fall 2014) for Earning Perfect Semester GPA
-- Dean's List (Fall 2012, Spring 2013, Spring 2014, Fall 2015, Spring 2015)
-
-</details>
 
 ---
 
