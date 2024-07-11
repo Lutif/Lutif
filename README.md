@@ -13,7 +13,7 @@
 
 [facebook]: https://www.facebook.com/lutif
 [linkedin]: https://www.linkedin.com/in/lutif
-[devTo]: https://dev.to/lutif
+[devTo]: https://dev.to/lutf
 
 ### Languages and Tools:
 <br />
