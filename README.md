@@ -21,7 +21,7 @@
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=lutif" alt="lutif" />
-  <img src="https://badges.pufler.dev/years/lutif" alt="lutif" />
+<!--   <img src="https://badges.pufler.dev/years/lutif" alt="lutif" /> -->
   <img src="https://badges.pufler.dev/commits/yearly/lutif?private=true" alt="lutif" />
 </p>
 
