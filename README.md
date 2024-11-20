@@ -19,12 +19,6 @@
 [linkedin]: https://www.linkedin.com/in/lutif
 [devTo]: https://dev.to/lutf
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=lutif" alt="lutif" />
-<!--   <img src="https://badges.pufler.dev/years/lutif" alt="lutif" /> -->
-  <img src="https://badges.pufler.dev/commits/yearly/lutif?private=true" alt="lutif" />
-</p>
-
 
 ### My Most Used Tech Stack
 [![SkillIcons](https://skillicons.dev/icons?i=js,ts,react,nodejs,nextjs,graphql,nestjs,mongodb,prisma,docker,jest,go,rust)](https://skillicons.dev)
