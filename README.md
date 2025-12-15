@@ -1,6 +1,8 @@
 <p align="center">
 
-### Hey there, I'm Lutif Ali
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=0:1e90ff,100:00bfff&text=Hi,%20I'm%20Lutif%20Ali&fontColor=ffffff&desc=Typescript%20•%20Go%20•%20AI%20•%20Webdevelopement&descAlign=50&fontAlign=50&fontAlignY=45" width="100%" alt="header"/>
+</p>
 
 
 <!-- - 🥅 2022 Goals: leetcode(ing) the way -->
@@ -118,6 +120,8 @@ In a nutshell, I'm not just coding; I'm crafting digital experiences that make u
 - GraphQL ![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=flat&logo=graphql&logoColor=white)
 - Kubernetes ![Kubernetes](https://img.shields.io/badge/-Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white)
 
+
+
 </details>
 
 ## 📜 Work History: Where Magic Happened!
@@ -141,8 +145,14 @@ _June ‘20 - Feb ‘21_ ![Syntax Squad](https://img.shields.io/badge/-Syntax_Sq
 - Embarked on a quest to create a social network for travel aficionados.
 - Charted digital maps and real-time chats using Vue.js, Nuxt.js, and a sprinkle of PusherJS.
 - Technologies: Vue.js, Nuxt.js, Google Maps API, PusherJS, React Native
-
 </details>
+
+ -->
+ 
+
+
+ <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1e90ff,100:00bfff&height=120&section=footer"/>
+
 
 
 
