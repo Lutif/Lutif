@@ -23,7 +23,7 @@
 
 
 ### My Most Used Tech Stack
-[![SkillIcons](https://skillicons.dev/icons?i=js,ts,react,nodejs,nextjs,graphql,nestjs,mongodb,prisma,docker,jest,go,rust)](https://skillicons.dev)
+[![SkillIcons](https://skillicons.dev/icons?i=js,ts,react,nodejs,nextjs,graphql,nestjs,mongodb,prisma,docker,go)](https://skillicons.dev)
 
 <!-- <details><summary>Projects</summary>
 
