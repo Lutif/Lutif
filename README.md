@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=0:1e90ff,100:00bfff&text=Hi,%20I'm%20Lutif%20Ali&fontColor=ffffff&desc=Typescript%20•%20Go%20•%20AI%20•%20Webdevelopement&descAlign=50&fontAlign=50&fontAlignY=45" width="100%" alt="header"/>
 </p>
-
+https://forms.gle/4e6vHsLEKUMeVefR6
 
 <!-- - 🥅 2022 Goals: leetcode(ing) the way -->
 <!--  🥅 2023 Goals: rust(ing) away<img src="rust.gif" width="100" height="100" align="center"/> -->
