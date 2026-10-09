@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { FLEET, fleetTile, galaxyPreview } from './repo-galaxy.mjs';
 import { COLOR, MONO, SANS, clamp, esc, fmt, mix, pct, r2, ramp, seeded, starfield, wordmark } from './svg-kit.mjs';
 
 const LOGIN = process.env.GITHUB_USER || 'Lutif';
@@ -15,10 +16,17 @@ const QUERY = `query ($login: String!) {
         weeks { contributionDays { date weekday contributionCount } }
       }
     }
+    repositories(first: 100, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC, orderBy: { field: CREATED_AT, direction: ASC }) {
+      nodes {
+        name description url homepageUrl stargazerCount forkCount createdAt pushedAt isArchived diskUsage
+        primaryLanguage { name color }
+        repositoryTopics(first: 6) { nodes { topic { name } } }
+      }
+    }
   }
 }`;
 
-async function fetchCalendar() {
+async function fetchProfile() {
   if (!TOKEN) throw new Error('GITHUB_TOKEN is not set');
   const res = await fetch('https://api.github.com/graphql', {
     method: 'POST',
@@ -37,6 +45,23 @@ async function fetchCalendar() {
     createdAt: new Date(data.user.createdAt),
     total: calendar.totalContributions,
     weeks: calendar.weeks.map((w) => w.contributionDays),
+    repos: data.user.repositories.nodes
+      .filter((r) => r.name.toLowerCase() !== LOGIN.toLowerCase())
+      .map((r) => ({
+        name: r.name,
+        description: r.description ?? '',
+        url: r.url,
+        homepage: r.homepageUrl || '',
+        stars: r.stargazerCount,
+        forks: r.forkCount,
+        language: r.primaryLanguage?.name ?? 'Other',
+        color: r.primaryLanguage?.color ?? COLOR.dust,
+        createdAt: r.createdAt,
+        pushedAt: r.pushedAt,
+        archived: r.isArchived,
+        size: r.diskUsage ?? 0,
+        topics: r.repositoryTopics.nodes.map((n) => n.topic.name),
+      })),
   };
 }
 
@@ -397,9 +422,22 @@ ${todayCallout}
 `;
 }
 
-const calendar = await fetchCalendar();
-const stats = summarize(calendar.weeks);
-await mkdir(OUT, { recursive: true });
-await writeFile(join(OUT, 'header.svg'), header(calendar));
-await writeFile(join(OUT, 'skyline.svg'), skyline(calendar, stats));
-console.log(`Rendered ${fmt(calendar.total)} contributions into ${OUT}/header.svg and ${OUT}/skyline.svg`);
+const profile = await fetchProfile();
+const stats = summarize(profile.weeks);
+await mkdir(join(OUT, 'fleet'), { recursive: true });
+await writeFile(join(OUT, 'header.svg'), header(profile));
+await writeFile(join(OUT, 'skyline.svg'), skyline(profile, stats));
+await writeFile(join(OUT, 'galaxy.svg'), galaxyPreview(profile.repos));
+await writeFile(
+  join(OUT, 'repos.json'),
+  JSON.stringify({ login: LOGIN, generatedAt: new Date().toISOString(), repos: profile.repos }, null, 1),
+);
+for (const { name, tagline } of FLEET) {
+  const repo = profile.repos.find((r) => r.name === name);
+  if (!repo) {
+    console.warn(`Skipping fleet tile for ${name}: not a public repo of ${LOGIN}`);
+    continue;
+  }
+  await writeFile(join(OUT, 'fleet', `${name}.svg`), fleetTile(repo, tagline));
+}
+console.log(`Rendered ${fmt(profile.total)} contributions and ${profile.repos.length} repos into ${OUT}/`);
