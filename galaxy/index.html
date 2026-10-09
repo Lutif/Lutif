@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Repo galaxy of Lutif Ali</title>
+<meta name="description" content="Every public repo Lutif Ali has built, as a 3D galaxy: one star system per language, one planet per repo.">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #050812;
+    --hull: rgba(11, 17, 41, 0.78);
+    --line: rgba(92, 200, 255, 0.16);
+    --limb: #5cc8ff;
+    --gold: #f5bd4f;
+    --star: #e6ecff;
+    --dust: #8a95b8;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', sans-serif;
+    --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--void); color: var(--star); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: var(--limb); }
+  button, input { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--limb); outline-offset: 2px; }
+
+  #scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+  #scene:active { cursor: grabbing; }
+  #scene.pointing { cursor: pointer; }
+  #labels { position: fixed; inset: 0; pointer-events: none; }
+  .system-label { font-size: 12px; color: var(--dust); white-space: nowrap; text-shadow: 0 0 6px var(--void); }
+  .system-label b { color: var(--star); font-weight: 500; }
+
+  .glass { background: var(--hull); border: 1px solid var(--line); border-radius: 14px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+
+  .brand { position: fixed; top: 20px; left: 20px; width: 340px; padding: 18px 20px; }
+  .brand a.mark { display: inline-block; margin-bottom: 14px; }
+  .brand svg { display: block; height: 20px; width: auto; }
+  .brand h1 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+  .brand p { margin: 6px 0 0; color: var(--dust); font-size: 14px; line-height: 1.5; }
+
+  .tools { position: fixed; top: 20px; right: 20px; display: flex; gap: 8px; align-items: center; }
+  .tools input { width: 220px; padding: 10px 14px; border-radius: 10px; background: var(--hull); border: 1px solid var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .tools input::placeholder { color: var(--dust); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--hull); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); cursor: pointer; text-decoration: none; color: var(--star); font-size: 14px; white-space: nowrap; }
+  .btn:hover { border-color: rgba(92, 200, 255, 0.4); }
+  .btn.primary { background: var(--gold); border-color: var(--gold); color: #0b1129; font-weight: 600; }
+
+  .legend { position: fixed; top: 76px; right: 20px; padding: 8px; display: flex; flex-direction: column; min-width: 190px; }
+  .legend button { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 0; border-radius: 8px; background: none; cursor: pointer; text-align: left; font-size: 14px; }
+  .legend button:hover { background: rgba(92, 200, 255, 0.08); }
+  .legend .count { margin-left: auto; color: var(--dust); font-family: var(--mono); font-size: 12px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; box-shadow: 0 0 10px currentColor; background: currentColor; }
+
+  .panel { position: fixed; top: 76px; right: 20px; width: 340px; max-height: calc(100% - 180px); overflow: auto; padding: 22px; }
+  .panel h2 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+  .panel .meta { margin: 6px 0 0; color: var(--dust); font-size: 14px; display: flex; align-items: center; gap: 8px; }
+  .panel .desc { margin: 16px 0 0; font-size: 15px; line-height: 1.55; }
+  .panel .desc.empty { color: var(--dust); }
+  .panel dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 18px 0 0; font-size: 14px; }
+  .panel dt { color: var(--dust); }
+  .panel dd { margin: 0; font-family: var(--mono); font-size: 13px; }
+  .panel .topics { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .panel .topics span { padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--limb); font-size: 12px; }
+  .panel .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .panel .repo-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 2px; }
+  .panel .repo-list button { width: 100%; display: flex; gap: 10px; padding: 8px 10px; border: 0; border-radius: 8px; background: none; cursor: pointer; text-align: left; font-size: 14px; }
+  .panel .repo-list button:hover { background: rgba(92, 200, 255, 0.08); }
+  .panel .repo-list .name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .panel .repo-list .stars { flex: none; color: var(--gold); font-family: var(--mono); font-size: 12px; }
+  .panel .back { margin-top: 18px; }
+
+  .timeline { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); width: min(760px, calc(100% - 40px)); padding: 10px 16px 10px 10px; display: flex; align-items: center; gap: 14px; }
+  .timeline .play { width: 40px; height: 40px; flex: none; display: grid; place-items: center; border-radius: 10px; border: 0; background: var(--gold); color: #0b1129; cursor: pointer; }
+  .timeline input[type=range] { flex: 1; min-width: 0; accent-color: var(--gold); }
+  .timeline .when { flex: none; text-align: right; min-width: 132px; }
+  .timeline .when b { display: block; font-family: var(--mono); font-weight: 500; font-size: 14px; }
+  .timeline .when span { color: var(--dust); font-size: 12px; }
+
+  .tooltip { position: fixed; z-index: 5; pointer-events: none; max-width: 280px; padding: 10px 12px; font-size: 13px; line-height: 1.45; }
+  .tooltip strong { display: block; font-size: 14px; font-weight: 600; }
+  .tooltip .meta { color: var(--dust); }
+  .tooltip p { margin: 4px 0 0; }
+
+  .status { position: fixed; inset: 0; display: grid; place-items: center; text-align: center; padding: 20px; color: var(--dust); font-size: 15px; pointer-events: none; }
+  .status.error { pointer-events: auto; }
+
+  .listview { position: fixed; inset: 0; z-index: 10; overflow: auto; background: rgba(5, 8, 18, 0.96); padding: 24px 20px 60px; }
+  .listview .inner { max-width: 960px; margin: 0 auto; }
+  .listview header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  .listview h2 { margin: 0; font-size: 22px; font-weight: 600; }
+  .listview table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .listview th { text-align: left; color: var(--dust); font-weight: 500; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  .listview td { padding: 10px; border-bottom: 1px solid rgba(92, 200, 255, 0.07); vertical-align: top; }
+  .listview td.num { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+  .listview td .lang { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+
+  [hidden] { display: none !important; }
+
+  @media (max-width: 760px) {
+    .brand { top: 12px; left: 12px; right: 12px; width: auto; padding: 14px 16px; }
+    .brand .hint { display: none; }
+    .tools { top: auto; bottom: 86px; right: 12px; left: 12px; }
+    .tools input { flex: 1; width: auto; }
+    .legend { top: auto; bottom: 140px; left: 12px; right: 12px; flex-direction: row; overflow-x: auto; min-width: 0; }
+    .legend button { flex: none; }
+    .panel { top: auto; bottom: 86px; left: 12px; right: 12px; width: auto; max-height: 46%; }
+    .timeline { bottom: 12px; width: calc(100% - 24px); }
+    .timeline .when { min-width: 96px; }
+    .listview th.desc, .listview td.desc { display: none; }
+  }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="scene" aria-label="3D galaxy of repositories. Use the list view for a text version."></canvas>
+<div id="labels"></div>
+
+<header class="brand glass">
+  <a class="mark" href="https://github.com/Lutif" aria-label="Lutif Ali on GitHub">
+    <svg viewBox="0 0 386 60" role="img" aria-hidden="true">
+      <g fill="none" stroke="#e6ecff" stroke-width="10">
+        <path d="M5 0V55H40"/><path transform="translate(54)" d="M5 0V39A16 16 0 0 0 37 39V0"/><path transform="translate(110)" d="M0 5H42M21 5V60"/>
+        <path transform="translate(166)" d="M5 0V60"/><path transform="translate(190)" d="M5 60V5H38M5 31H31"/>
+        <path transform="translate(322)" d="M5 0V55H40"/><path transform="translate(376)" d="M5 0V60"/>
+      </g>
+      <polygon transform="translate(262)" fill="#e6ecff" points="19,0 27,0 46,60 35,60 23,20 11,60 0,60"/>
+    </svg>
+  </a>
+  <h1>Repo galaxy</h1>
+  <p id="intro">Every public repo I've built. One star system per language, one planet per repo.</p>
+  <p class="hint">Drag to orbit, scroll to zoom, click a planet to fly there.</p>
+</header>
+
+<div class="tools">
+  <input id="search" type="search" list="repo-names" placeholder="Find a repo" aria-label="Find a repo" autocomplete="off">
+  <datalist id="repo-names"></datalist>
+  <button class="btn" id="open-list" type="button">List view</button>
+</div>
+
+<nav class="legend glass" id="legend" aria-label="Star systems"></nav>
+<aside class="panel glass" id="panel" aria-live="polite" hidden></aside>
+
+<div class="timeline glass" id="timeline">
+  <button class="play" id="play" type="button" aria-label="Pause replay"></button>
+  <input id="scrub" type="range" min="0" max="1000" step="1" value="0" aria-label="Timeline">
+  <div class="when"><b id="when-date">&nbsp;</b><span id="when-count">&nbsp;</span></div>
+</div>
+
+<div class="tooltip glass" id="tooltip" role="tooltip" hidden></div>
+<div class="status" id="status">Charting the galaxy…</div>
+
+<section class="listview" id="listview" hidden aria-labelledby="list-title">
+  <div class="inner">
+    <header><h2 id="list-title">All repos</h2><button class="btn" id="close-list" type="button">Back to galaxy</button></header>
+    <table>
+      <thead><tr><th>Repo</th><th>Language</th><th>Stars</th><th>Created</th><th class="desc">Description</th></tr></thead>
+      <tbody id="list-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<noscript><div class="status">The galaxy needs JavaScript. <a href="https://github.com/Lutif?tab=repositories">Browse the repos on GitHub</a>.</div></noscript>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const DATA_URL = 'https://raw.githubusercontent.com/Lutif/Lutif/output/repos.json';
+const PROFILE_URL = 'https://github.com/Lutif';
+const REPLAY_SECONDS = 16;
+const HOME_DIR = new THREE.Vector3(0.15, 0.62, 1).normalize();
+
+const params = new URLSearchParams(location.search);
+const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (id) => document.getElementById(id);
+
+const ICONS = {
+  pause: '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/></svg>',
+  play: '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg>',
+  replay: '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8a4.5 4.5 0 1 0 1.4-3.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M2.5 2.5v3.5H6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+};
+
+function seeded(seed) {
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function hashSeed(text) {
+  let h = 2166136261;
+  for (const ch of text) {
+    h ^= ch.charCodeAt(0);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+const isGitHubUrl = (url) => typeof url === 'string' && url.startsWith('https://github.com/');
+const isHttpsUrl = (url) => typeof url === 'string' && url.startsWith('https://');
+const monthYear = (date) => new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const easeOutBack = (t) => 1 + 2.2 * Math.pow(t - 1, 3) + 1.2 * Math.pow(t - 1, 2);
+
+function relativeTime(date) {
+  const days = (Date.now() - Date.parse(date)) / 86400000;
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+  if (days < 1) return 'today';
+  if (days < 30) return rtf.format(-Math.round(days), 'day');
+  if (days < 365) return rtf.format(-Math.round(days / 30), 'month');
+  return rtf.format(-Math.round(days / 365), 'year');
+}
+
+function el(tag, props = {}, ...children) {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(props)) {
+    if (key === 'style') Object.assign(node.style, value);
+    else if (key.startsWith('on')) node.addEventListener(key.slice(2), value);
+    else if (value !== undefined && value !== null && value !== false) node.setAttribute(key, value === true ? '' : value);
+  }
+  for (const child of children.flat()) if (child !== null && child !== undefined && child !== false) node.append(child);
+  return node;
+}
+
+function radialTexture(stops, size = 128) {
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = size;
+  const g = canvas.getContext('2d');
+  const gradient = g.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  for (const [offset, color] of stops) gradient.addColorStop(offset, color);
+  g.fillStyle = gradient;
+  g.fillRect(0, 0, size, size);
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  return texture;
+}
+
+function planetTexture(color, rocky, rand) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 256;
+  canvas.height = 128;
+  const g = canvas.getContext('2d');
+  const base = new THREE.Color(color);
+  g.fillStyle = `#${base.getHexString()}`;
+  g.fillRect(0, 0, 256, 128);
+  const tone = (l, a) => {
+    const c = base.clone().offsetHSL(0, 0, l);
+    return `rgba(${Math.round(c.r * 255)},${Math.round(c.g * 255)},${Math.round(c.b * 255)},${a})`;
+  };
+  if (rocky) {
+    for (let i = 0; i < 40; i++) {
+      g.fillStyle = tone((rand() - 0.5) * 0.25, 0.35);
+      g.beginPath();
+      g.ellipse(rand() * 256, rand() * 128, 6 + rand() * 26, 4 + rand() * 14, 0, 0, Math.PI * 2);
+      g.fill();
+    }
+    for (let i = 0; i < 22; i++) {
+      const x = rand() * 256;
+      const y = 10 + rand() * 108;
+      const r = 2 + rand() * 7;
+      g.fillStyle = tone(-0.18, 0.5);
+      g.beginPath();
+      g.arc(x, y, r, 0, Math.PI * 2);
+      g.fill();
+      g.strokeStyle = tone(0.15, 0.35);
+      g.lineWidth = 1;
+      g.beginPath();
+      g.arc(x - r * 0.15, y - r * 0.15, r * 0.85, Math.PI, Math.PI * 1.8);
+      g.stroke();
+    }
+  } else {
+    let y = 0;
+    while (y < 128) {
+      const h = 3 + rand() * 12;
+      g.fillStyle = tone((rand() - 0.5) * 0.32, 0.55);
+      g.fillRect(0, y, 256, h);
+      y += h;
+    }
+    for (let i = 0; i < 6; i++) {
+      g.fillStyle = tone(0.12, 0.25);
+      g.beginPath();
+      g.ellipse(rand() * 256, rand() * 128, 10 + rand() * 18, 3 + rand() * 4, 0, 0, Math.PI * 2);
+      g.fill();
+    }
+  }
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  return texture;
+}
+
+function showStatus(message, linkText, linkHref) {
+  const status = $('status');
+  status.replaceChildren(el('div', {}, message, linkText ? ' ' : null, linkText ? el('a', { href: linkHref }, linkText) : null));
+  status.classList.add('error');
+  status.hidden = false;
+}
+
+function buildList(repos) {
+  const rows = [...repos]
+    .sort((a, b) => b.stars - a.stars || Date.parse(b.pushedAt) - Date.parse(a.pushedAt))
+    .map((repo) =>
+      el('tr', {},
+        el('td', {}, isGitHubUrl(repo.url) ? el('a', { href: repo.url }, repo.name) : repo.name),
+        el('td', {}, el('span', { class: 'lang' }, el('span', { class: 'dot', style: { color: repo.color } }), repo.language)),
+        el('td', { class: 'num' }, `★ ${repo.stars}`),
+        el('td', { class: 'num' }, monthYear(repo.createdAt)),
+        el('td', { class: 'desc' }, repo.description || ''),
+      ),
+    );
+  $('list-body').replaceChildren(...rows);
+  $('list-title').textContent = `All ${repos.length} repos`;
+}
+
+async function loadRepos() {
+  const url = (isLocal && params.get('data')) || DATA_URL;
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`repos.json answered ${res.status}`);
+  const data = await res.json();
+  return data.repos.filter((r) => r && typeof r.name === 'string');
+}
+
+async function main() {
+  let repos;
+  try {
+    repos = await loadRepos();
+  } catch {
+    showStatus("The galaxy data didn't load. Reload the page, or", 'browse the repos on GitHub.', `${PROFILE_URL}?tab=repositories`);
+    return;
+  }
+  buildList(repos);
+  $('open-list').addEventListener('click', () => ($('listview').hidden = false));
+  $('close-list').addEventListener('click', () => ($('listview').hidden = true));
+
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: $('scene'), antialias: true, powerPreference: 'high-performance' });
+  } catch {
+    $('status').hidden = true;
+    $('listview').hidden = false;
+    $('close-list').hidden = true;
+    $('list-title').textContent = `All ${repos.length} repos (3D needs WebGL, which this browser has turned off)`;
+    return;
+  }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color('#03050c');
+  const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 4000);
+
+  const labelRenderer = new CSS2DRenderer({ element: $('labels') });
+  labelRenderer.setSize(innerWidth, innerHeight);
+
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.95, 0.6, 0.72);
+  composer.addPass(bloom);
+  composer.addPass(new OutputPass());
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.06;
+  controls.minDistance = 3;
+  controls.maxDistance = 1100;
+  controls.autoRotateSpeed = 0.35;
+
+  scene.add(new THREE.AmbientLight('#8fa4d8', 0.35));
+
+  const glow = radialTexture([[0, 'rgba(255,255,255,1)'], [0.12, 'rgba(255,255,255,0.65)'], [0.35, 'rgba(255,255,255,0.16)'], [0.65, 'rgba(255,255,255,0.03)'], [0.92, 'rgba(255,255,255,0)'], [1, 'rgba(255,255,255,0)']], 256);
+  const dotTexture = radialTexture([[0, 'rgba(255,255,255,1)'], [0.45, 'rgba(255,255,255,0.6)'], [1, 'rgba(255,255,255,0)']], 32);
+  const sprite = (color, scale, opacity = 1) => {
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: glow, color, transparent: true, opacity, depthWrite: false, blending: THREE.AdditiveBlending }));
+    s.scale.setScalar(scale);
+    return s;
+  };
+
+  const backdrop = (() => {
+    const rand = seeded(11);
+    const count = 3200;
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+    const tints = ['#ffffff', '#cfe6ff', '#ffe3ad', '#e6ecff'].map((c) => new THREE.Color(c));
+    for (let i = 0; i < count; i++) {
+      const u = rand() * 2 - 1;
+      const phi = rand() * Math.PI * 2;
+      const r = 1400 + rand() * 600;
+      const s = Math.sqrt(1 - u * u);
+      positions.set([r * s * Math.cos(phi), r * u, r * s * Math.sin(phi)], i * 3);
+      const tint = tints[Math.floor(rand() * tints.length)].clone().multiplyScalar(0.35 + rand() * 0.65);
+      colors.set([tint.r, tint.g, tint.b], i * 3);
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    return new THREE.Points(geometry, new THREE.PointsMaterial({ size: 1.6, sizeAttenuation: false, vertexColors: true, map: dotTexture, transparent: true, depthWrite: false }));
+  })();
+  scene.add(backdrop);
+
+  const dust = (() => {
+    const rand = seeded(23);
+    const count = 14000;
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+    const palette = ['#5cc8ff', '#7a8cff', '#9b7bff', '#f5bd4f'].map((c) => new THREE.Color(c));
+    for (let i = 0; i < count; i++) {
+      const arm = i % 2;
+      const t = Math.pow(rand(), 0.75) * 3.4 * Math.PI;
+      const radius = 14 * Math.exp(0.25 * t) + (rand() - 0.5) * 22;
+      const angle = t + arm * Math.PI + (rand() - 0.5) * 0.5;
+      const spread = (rand() - 0.5) * (18 - Math.min(12, radius / 20));
+      positions.set([Math.cos(angle) * radius, spread, Math.sin(angle) * radius], i * 3);
+      const c = palette[rand() < 0.08 ? 3 : Math.floor(rand() * 3)].clone().multiplyScalar(0.25 + rand() * 0.5);
+      colors.set([c.r, c.g, c.b], i * 3);
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    const material = new THREE.PointsMaterial({ size: 1.9, vertexColors: true, map: dotTexture, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
+    material.onBeforeCompile = (shader) => {
+      shader.vertexShader = shader.vertexShader.replace('#include <logdepthbuf_vertex>', 'gl_PointSize = min(gl_PointSize, 4.0);\n#include <logdepthbuf_vertex>');
+    };
+    return new THREE.Points(geometry, material);
+  })();
+  scene.add(dust);
+
+  const core = new THREE.Group();
+  const coreBody = new THREE.Mesh(new THREE.SphereGeometry(3, 32, 16), new THREE.MeshBasicMaterial({ color: new THREE.Color('#fff1d0').multiplyScalar(3) }));
+  core.add(coreBody, sprite('#f5bd4f', 46, 0.9), sprite('#9b7bff', 150, 0.35));
+  scene.add(core);
+  const coreLabel = new CSS2DObject(el('div', { class: 'system-label' }, el('b', {}, 'Lutif')));
+  coreLabel.position.set(0, 6, 0);
+  core.add(coreLabel);
+
+  const byLanguage = new Map();
+  for (const repo of repos) {
+    if (!byLanguage.has(repo.language)) byLanguage.set(repo.language, { language: repo.language, color: repo.color, repos: [] });
+    byLanguage.get(repo.language).repos.push(repo);
+  }
+  const systems = [...byLanguage.values()].sort((a, b) => b.repos.length - a.repos.length || a.language.localeCompare(b.language));
+  const layoutRand = seeded(7);
+  const ORBIT_GAP = 3.6;
+
+  systems.forEach((system, i) => {
+    system.repos.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+    system.starRadius = 2.2 + Math.sqrt(system.repos.length) * 0.75;
+    system.extent = system.starRadius * 2 + 3 + system.repos.length * ORBIT_GAP;
+    const angle = 0.5 + i * 2.39996;
+    let dist = 40 + system.extent + i * 26;
+    const position = () => new THREE.Vector3(Math.cos(angle) * dist, (layoutRand() - 0.5) * 12, Math.sin(angle) * dist);
+    system.position = position();
+    for (let guard = 0; guard < 40 && systems.slice(0, i).some((o) => o.position.distanceTo(system.position) < o.extent + system.extent + 14); guard++) {
+      dist += 10;
+      system.position = position();
+    }
+  });
+
+  const bodies = [];
+  const planets = [];
+  const legend = $('legend');
+
+  for (const system of systems) {
+    const rand = seeded(hashSeed(system.language));
+    const group = new THREE.Group();
+    group.position.copy(system.position);
+    group.rotation.set((rand() - 0.5) * 0.5, rand() * Math.PI, (rand() - 0.5) * 0.5);
+    scene.add(group);
+    system.group = group;
+
+    const color = new THREE.Color(system.color);
+    const star = new THREE.Mesh(new THREE.SphereGeometry(system.starRadius, 32, 16), new THREE.MeshBasicMaterial({ color: color.clone().lerp(new THREE.Color('#ffffff'), 0.35).multiplyScalar(2.4) }));
+    const halo = sprite(system.color, system.starRadius * 8, 0.75);
+    const light = new THREE.PointLight(color.clone().lerp(new THREE.Color('#ffffff'), 0.55), 3.2, system.extent * 2.6, 0);
+    const starHolder = new THREE.Group();
+    starHolder.add(star, halo, light);
+    group.add(starHolder);
+    system.starHolder = starHolder;
+
+    const label = new CSS2DObject(el('div', { class: 'system-label' }, el('b', {}, system.language), ` ${system.repos.length}`));
+    label.position.set(0, system.starRadius + 6, 0);
+    starHolder.add(label);
+    system.label = label;
+
+    bodies.push({ kind: 'system', system, object: star, radius: system.starRadius });
+
+    system.repos.forEach((repo, k) => {
+      const prand = seeded(hashSeed(repo.name));
+      const orbitRadius = system.starRadius * 2 + 3 + k * ORBIT_GAP;
+      const radius = THREE.MathUtils.clamp(0.8 + Math.log2(1 + repo.stars) * 0.6 + Math.log10(1 + repo.size) * 0.1, 0.8, 1.75);
+      const tint = new THREE.Color(repo.color).offsetHSL((prand() - 0.5) * 0.18, 0, (prand() - 0.5) * 0.14);
+      const rocky = ['Go', 'Rust', 'Other'].includes(repo.language);
+
+      const orbitPoints = Array.from({ length: 129 }, (_, i) => {
+        const a = (i / 128) * Math.PI * 2;
+        return new THREE.Vector3(Math.cos(a) * orbitRadius, 0, Math.sin(a) * orbitRadius);
+      });
+      const orbit = new THREE.Line(new THREE.BufferGeometry().setFromPoints(orbitPoints), new THREE.LineBasicMaterial({ color: tint, transparent: true, opacity: 0, depthWrite: false }));
+      group.add(orbit);
+
+      const pivot = new THREE.Group();
+      pivot.rotation.y = prand() * Math.PI * 2;
+      group.add(pivot);
+
+      const mesh = new THREE.Mesh(
+        new THREE.SphereGeometry(radius, 32, 16),
+        new THREE.MeshStandardMaterial({ map: planetTexture(tint, rocky, prand), roughness: 0.88, metalness: 0, emissive: tint, emissiveIntensity: 0.08 }),
+      );
+      mesh.position.set(orbitRadius, 0, 0);
+      mesh.rotation.z = (prand() - 0.5) * 0.6;
+      pivot.add(mesh);
+
+      if (repo.stars >= 3) {
+        const ring = new THREE.Mesh(
+          new THREE.RingGeometry(radius * 1.4, radius * 1.95, 96),
+          new THREE.MeshStandardMaterial({ color: tint.clone().lerp(new THREE.Color('#ffffff'), 0.25), side: THREE.DoubleSide, transparent: true, opacity: 0.32, depthWrite: false, roughness: 1 }),
+        );
+        ring.rotation.x = -Math.PI / 2 + 0.45;
+        mesh.add(ring);
+      }
+
+      const active = Date.now() - Date.parse(repo.pushedAt) < 120 * 86400000;
+      const aura = active ? sprite(tint, radius * 6, 0.4) : null;
+      if (aura) mesh.add(aura);
+      mesh.add(sprite(tint, radius * 3.2, 0.5));
+
+      const flash = sprite('#ffffff', 0.01, 0);
+      flash.position.copy(mesh.position);
+      pivot.add(flash);
+
+      const planet = {
+        repo, system, mesh, pivot, orbit, flash, aura, radius, orbitRadius,
+        born: Date.parse(repo.createdAt),
+        speed: (1.5 / Math.pow(orbitRadius, 1.1)) * (0.8 + prand() * 0.4),
+        spin: 0.2 + prand() * 0.4,
+        shown: false,
+        shownAt: 0,
+      };
+      planets.push(planet);
+      bodies.push({ kind: 'repo', planet, object: mesh, radius });
+    });
+
+    legend.append(
+      el('button', { type: 'button', onclick: () => focusSystem(system) },
+        el('span', { class: 'dot', style: { color: system.color } }),
+        system.language,
+        el('span', { class: 'count' }, String(system.repos.length)),
+      ),
+    );
+  }
+  bodies.push({ kind: 'core', object: coreBody, radius: 3 });
+
+  $('repo-names').replaceChildren(...repos.map((r) => el('option', { value: r.name })));
+  const firstYear = new Date(Math.min(...repos.map((r) => Date.parse(r.createdAt)))).getFullYear();
+  $('intro').textContent = `${repos.length} public repos since ${firstYear}. One star system per language, one planet per repo.`;
+
+  const galaxyRadius = Math.max(...systems.map((s) => s.position.length() + s.extent));
+  const homeDistance = galaxyRadius * (innerWidth < 760 ? 3.1 : 2.15);
+  const home = new THREE.Object3D();
+  scene.add(home);
+
+  const state = {
+    time: 0,
+    playing: false,
+    focus: null,
+    flight: null,
+    prevGoal: null,
+    hovered: null,
+    pointer: null,
+    lastInput: performance.now(),
+    clock: 0,
+    offset: { x: 0, y: 0 },
+  };
+
+  const t0 = Math.min(...planets.map((p) => p.born)) - 20 * 86400000;
+  const t1 = Date.now();
+
+  function setPlayIcon() {
+    const atEnd = state.time >= t1;
+    $('play').innerHTML = state.playing ? ICONS.pause : atEnd ? ICONS.replay : ICONS.play;
+    $('play').setAttribute('aria-label', state.playing ? 'Pause replay' : atEnd ? 'Replay from the start' : 'Play replay');
+  }
+
+  function setTime(time) {
+    state.time = THREE.MathUtils.clamp(time, t0, t1);
+    $('scrub').value = String(Math.round(((state.time - t0) / (t1 - t0)) * 1000));
+    const shown = planets.filter((p) => p.born <= state.time).length;
+    $('when-date').textContent = state.time >= t1 ? 'Today' : monthYear(state.time);
+    $('when-count').textContent = `${shown} of ${planets.length} repos`;
+  }
+
+  function worldPosition(object) {
+    return object.getWorldPosition(new THREE.Vector3());
+  }
+
+  function flyTo(object, distance, { duration = 1.6, direction, keepFocus = true } = {}) {
+    const dir = direction ?? camera.position.clone().sub(controls.target).normalize();
+    state.focus = keepFocus ? object : null;
+    state.flight = {
+      object,
+      t: 0,
+      duration: reducedMotion ? 0.001 : duration,
+      fromPos: camera.position.clone(),
+      fromTarget: controls.target.clone(),
+      dir,
+      distance,
+    };
+    controls.enabled = false;
+    controls.autoRotate = false;
+  }
+
+  function goHome(duration = 1.8) {
+    closePanel();
+    flyTo(home, homeDistance, { duration, direction: HOME_DIR.clone(), keepFocus: false });
+  }
+
+  function closePanel() {
+    $('panel').hidden = true;
+    $('legend').hidden = false;
+  }
+
+  function openPanel(...children) {
+    $('panel').replaceChildren(...children.filter(Boolean), el('button', { type: 'button', class: 'btn back', onclick: () => goHome() }, 'Back to galaxy'));
+    $('panel').hidden = false;
+    $('legend').hidden = innerWidth >= 760 ? true : $('legend').hidden;
+    $('panel').scrollTop = 0;
+  }
+
+  function ensureVisible() {
+    if (state.time < t1) {
+      state.playing = false;
+      setTime(t1);
+      setPlayIcon();
+    }
+  }
+
+  function focusPlanet(planet) {
+    ensureVisible();
+    flyTo(planet.mesh, Math.max(7, planet.radius * (innerWidth < 760 ? 13 : 9)));
+    const { repo } = planet;
+    openPanel(
+      el('h2', {}, repo.name),
+      el('p', { class: 'meta' }, el('span', { class: 'dot', style: { color: repo.color } }), `${repo.language}${repo.archived ? ', archived' : ''}`),
+      el('p', { class: repo.description ? 'desc' : 'desc empty' }, repo.description || 'No description yet.'),
+      el('dl', {},
+        el('dt', {}, 'Stars'), el('dd', {}, String(repo.stars)),
+        el('dt', {}, 'Forks'), el('dd', {}, String(repo.forks)),
+        el('dt', {}, 'Created'), el('dd', {}, monthYear(repo.createdAt)),
+        el('dt', {}, 'Last push'), el('dd', {}, relativeTime(repo.pushedAt)),
+      ),
+      repo.topics?.length ? el('div', { class: 'topics' }, repo.topics.map((t) => el('span', {}, t))) : null,
+      el('div', { class: 'actions' },
+        isGitHubUrl(repo.url) ? el('a', { class: 'btn primary', href: repo.url, target: '_blank', rel: 'noopener' }, 'Open on GitHub') : null,
+        isHttpsUrl(repo.homepage) ? el('a', { class: 'btn', href: repo.homepage, target: '_blank', rel: 'noopener' }, 'Visit site') : null,
+      ),
+    );
+  }
+
+  function focusSystem(system) {
+    ensureVisible();
+    flyTo(system.starHolder, system.extent * 2.3);
+    const first = new Date(Date.parse(system.repos[0].createdAt)).getFullYear();
+    const count = system.repos.length;
+    openPanel(
+      el('h2', {}, system.language),
+      el('p', { class: 'meta' }, el('span', { class: 'dot', style: { color: system.color } }), `${count} ${count === 1 ? 'repo' : 'repos'}, the first from ${first}`),
+      el('ul', { class: 'repo-list' },
+        [...system.repos]
+          .sort((a, b) => b.stars - a.stars || Date.parse(b.pushedAt) - Date.parse(a.pushedAt))
+          .map((repo) => el('li', {}, el('button', { type: 'button', onclick: () => focusPlanet(planets.find((p) => p.repo === repo)) }, el('span', { class: 'name' }, repo.name), repo.stars ? el('span', { class: 'stars' }, `★ ${repo.stars}`) : null))),
+      ),
+    );
+  }
+
+  function focusCore() {
+    flyTo(coreBody, 22);
+    openPanel(
+      el('h2', {}, 'Lutif Ali'),
+      el('p', { class: 'meta' }, 'Software engineer at Fireflies.ai'),
+      el('p', { class: 'desc' }, `${repos.length} public repos across ${systems.length} languages since ${firstYear}. Mostly backend these days: TypeScript, NestJS, GraphQL and Go.`),
+      el('div', { class: 'actions' }, el('a', { class: 'btn primary', href: PROFILE_URL, target: '_blank', rel: 'noopener' }, 'GitHub profile')),
+    );
+  }
+
+  function pick(clientX, clientY) {
+    const rect = renderer.domElement.getBoundingClientRect();
+    const pxPerUnitAt = (distance) => rect.height / (2 * distance * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)));
+    let best = null;
+    for (const body of bodies) {
+      if (body.kind === 'repo' && !body.planet.shown) continue;
+      if (body.kind === 'system' && body.system.starHolder.scale.x < 0.05) continue;
+      const world = worldPosition(body.object);
+      const projected = world.clone().project(camera);
+      if (projected.z > 1) continue;
+      const sx = rect.left + ((projected.x + 1) / 2) * rect.width;
+      const sy = rect.top + ((1 - projected.y) / 2) * rect.height;
+      const distance = camera.position.distanceTo(world);
+      const reach = Math.max(14, body.radius * pxPerUnitAt(distance) + 6);
+      const gap = Math.hypot(sx - clientX, sy - clientY);
+      if (gap <= reach && (!best || distance < best.distance)) best = { body, distance };
+    }
+    return best?.body ?? null;
+  }
+
+  function showTooltip(body, x, y) {
+    const tip = $('tooltip');
+    if (!body) {
+      tip.hidden = true;
+      return;
+    }
+    if (body.kind === 'repo') {
+      const { repo } = body.planet;
+      tip.replaceChildren(el('strong', {}, repo.name), el('span', { class: 'meta' }, `${repo.language}, ★ ${repo.stars}`), repo.description ? el('p', {}, repo.description) : null);
+    } else if (body.kind === 'system') {
+      tip.replaceChildren(el('strong', {}, body.system.language), el('span', { class: 'meta' }, `${body.system.repos.length} repos`));
+    } else {
+      tip.replaceChildren(el('strong', {}, 'Lutif Ali'), el('span', { class: 'meta' }, 'The core of the galaxy'));
+    }
+    tip.hidden = false;
+    const left = Math.min(x + 16, innerWidth - tip.offsetWidth - 12);
+    const top = Math.min(y + 16, innerHeight - tip.offsetHeight - 12);
+    tip.style.left = `${left}px`;
+    tip.style.top = `${top}px`;
+  }
+
+  function activate(body) {
+    if (!body) return;
+    if (body.kind === 'repo') focusPlanet(body.planet);
+    else if (body.kind === 'system') focusSystem(body.system);
+    else focusCore();
+  }
+
+  const canvas = renderer.domElement;
+  let down = null;
+  const markInput = () => (state.lastInput = performance.now());
+  canvas.addEventListener('pointermove', (e) => {
+    state.pointer = { x: e.clientX, y: e.clientY, type: e.pointerType };
+    markInput();
+  });
+  canvas.addEventListener('pointerleave', () => {
+    state.pointer = null;
+    showTooltip(null);
+  });
+  canvas.addEventListener('pointerdown', (e) => {
+    down = { x: e.clientX, y: e.clientY };
+    markInput();
+  });
+  canvas.addEventListener('pointerup', (e) => {
+    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) < 6) activate(pick(e.clientX, e.clientY));
+    down = null;
+  });
+  canvas.addEventListener('wheel', markInput, { passive: true });
+  controls.addEventListener('start', () => {
+    markInput();
+    if (state.flight) {
+      state.flight = null;
+      controls.enabled = true;
+    }
+  });
+
+  $('scrub').addEventListener('input', (e) => {
+    state.playing = false;
+    setTime(t0 + (Number(e.target.value) / 1000) * (t1 - t0));
+    setPlayIcon();
+  });
+  $('play').addEventListener('click', () => {
+    if (state.time >= t1) setTime(t0);
+    state.playing = !state.playing;
+    setPlayIcon();
+  });
+
+  $('search').addEventListener('change', (e) => {
+    const query = e.target.value.trim().toLowerCase();
+    if (!query) return;
+    const match = planets.find((p) => p.repo.name.toLowerCase() === query) ?? planets.find((p) => p.repo.name.toLowerCase().includes(query));
+    if (match) {
+      focusPlanet(match);
+      e.target.blur();
+    }
+  });
+
+  addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (!$('listview').hidden) $('listview').hidden = true;
+      else if (!$('panel').hidden || state.focus) goHome();
+    } else if (e.key === '/' && document.activeElement !== $('search')) {
+      e.preventDefault();
+      $('search').focus();
+    }
+  });
+
+  addEventListener('resize', () => {
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+    composer.setSize(innerWidth, innerHeight);
+    labelRenderer.setSize(innerWidth, innerHeight);
+  });
+
+  const replay = !reducedMotion && !params.has('still');
+  camera.position.copy(HOME_DIR.clone().multiplyScalar(homeDistance * (replay ? 2.4 : 1)));
+  controls.target.set(0, 0, 0);
+  setTime(replay ? t0 : t1);
+  state.playing = replay;
+  setPlayIcon();
+  if (replay) flyTo(home, homeDistance, { duration: REPLAY_SECONDS * 0.85, direction: HOME_DIR.clone(), keepFocus: false });
+
+  const timer = new THREE.Clock();
+  $('status').hidden = true;
+
+  function tick() {
+    const dt = Math.min(timer.getDelta(), 0.05);
+    state.clock += dt;
+    const motion = reducedMotion ? 0 : 1;
+
+    if (state.playing) {
+      setTime(state.time + ((t1 - t0) / REPLAY_SECONDS) * dt);
+      if (state.time >= t1) {
+        state.playing = false;
+        setPlayIcon();
+      }
+    }
+
+    dust.rotation.y += dt * 0.004 * motion;
+
+    for (const system of systems) {
+      const born = system.repos.some((r) => Date.parse(r.createdAt) <= state.time);
+      const target = born ? 1 : 0.001;
+      const s = THREE.MathUtils.damp(system.starHolder.scale.x, target, 5, dt);
+      system.starHolder.scale.setScalar(s);
+      system.label.visible = s > 0.5;
+    }
+
+    for (const planet of planets) {
+      const visible = planet.born <= state.time;
+      if (visible && !planet.shown) {
+        planet.shown = true;
+        planet.shownAt = state.clock;
+      } else if (!visible && planet.shown) {
+        planet.shown = false;
+      }
+      const age = state.clock - planet.shownAt;
+      const scale = planet.shown ? (reducedMotion ? 1 : easeOutBack(Math.min(1, age / 0.8))) : 0.0001;
+      planet.mesh.scale.setScalar(Math.max(0.0001, scale));
+      planet.orbit.material.opacity = THREE.MathUtils.damp(planet.orbit.material.opacity, planet.shown ? (state.hovered?.planet === planet ? 0.65 : 0.16) : 0, 6, dt);
+
+      const flashing = planet.shown && age < 0.9 && !reducedMotion && state.time < t1;
+      planet.flash.material.opacity = flashing ? 1 - age / 0.9 : 0;
+      planet.flash.scale.setScalar(flashing ? planet.radius * (2 + age * 14) : 0.0001);
+
+      planet.pivot.rotation.y += planet.speed * dt * motion;
+      planet.mesh.rotation.y += planet.spin * dt * motion;
+      if (planet.aura) planet.aura.material.opacity = 0.28 + Math.sin(state.clock * 2 + planet.orbitRadius) * 0.14 * motion;
+    }
+
+    if (state.flight) {
+      const f = state.flight;
+      f.t = Math.min(1, f.t + dt / f.duration);
+      const k = easeInOut(f.t);
+      const goal = worldPosition(f.object);
+      controls.target.lerpVectors(f.fromTarget, goal, k);
+      camera.position.lerpVectors(f.fromPos, goal.clone().add(f.dir.clone().multiplyScalar(f.distance)), k);
+      if (f.t >= 1) {
+        state.flight = null;
+        state.prevGoal = goal;
+        controls.enabled = true;
+      }
+    } else if (state.focus) {
+      const goal = worldPosition(state.focus);
+      if (state.prevGoal) {
+        const delta = goal.clone().sub(state.prevGoal);
+        camera.position.add(delta);
+        controls.target.add(delta);
+      }
+      state.prevGoal = goal;
+    }
+
+    const panelOpen = !$('panel').hidden;
+    const narrow = innerWidth < 760;
+    const offsetGoal = { x: panelOpen && !narrow ? 190 : 0, y: panelOpen && narrow ? innerHeight * 0.22 : 0 };
+    state.offset.x = THREE.MathUtils.damp(state.offset.x, offsetGoal.x, 6, dt);
+    state.offset.y = THREE.MathUtils.damp(state.offset.y, offsetGoal.y, 6, dt);
+    camera.setViewOffset(innerWidth, innerHeight, state.offset.x, state.offset.y, innerWidth, innerHeight);
+
+    const idle = performance.now() - state.lastInput > 6000;
+    controls.autoRotate = !reducedMotion && !state.focus && !state.flight && idle;
+    controls.update();
+
+    if (state.pointer && !down && state.pointer.type !== 'touch') {
+      const body = pick(state.pointer.x, state.pointer.y);
+      state.hovered = body;
+      canvas.classList.toggle('pointing', Boolean(body));
+      showTooltip(body, state.pointer.x, state.pointer.y);
+    } else if (state.hovered) {
+      state.hovered = null;
+      canvas.classList.remove('pointing');
+      showTooltip(null);
+    }
+
+    composer.render();
+    labelRenderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+}
+
+main();
+</script>
+</body>
+</html>
