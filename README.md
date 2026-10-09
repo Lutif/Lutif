@@ -10,11 +10,20 @@
 
 I'm a software engineer at [Fireflies.ai](https://fireflies.ai), mostly on the backend: TypeScript, NestJS, GraphQL federation and MongoDB.
 
-Outside work I build small tools and learning projects:
+Outside work I build small tools and learning projects. Each planet links to its repo:
 
-- [**go-dojo**](https://github.com/Lutif/go-dojo) is a desktop app for learning Go: 250+ exercises with tests, a skill tree and a built-in editor.
-- [**slack-proofreader**](https://github.com/Lutif/slack-proofreader) adds a Proofread button to Slack that checks your message with Claude before you send it.
-- [**sentry-to-slack**](https://github.com/Lutif/sentry-to-slack) sends Sentry error alerts to Slack for free, from a Vercel edge function.
+<p align="center">
+  <a href="https://github.com/Lutif/go-dojo"><img src="https://raw.githubusercontent.com/Lutif/Lutif/output/fleet/go-dojo.svg" width="32%" alt="go-dojo: a desktop IDE with 250+ Go exercises" /></a>
+  <a href="https://github.com/Lutif/slack-proofreader"><img src="https://raw.githubusercontent.com/Lutif/Lutif/output/fleet/slack-proofreader.svg" width="32%" alt="slack-proofreader: proofreads Slack messages with Claude" /></a>
+  <a href="https://github.com/Lutif/sentry-to-slack"><img src="https://raw.githubusercontent.com/Lutif/Lutif/output/fleet/sentry-to-slack.svg" width="32%" alt="sentry-to-slack: free Sentry error alerts in Slack" /></a>
+  <a href="https://github.com/Lutif/react-native-animated-rating"><img src="https://raw.githubusercontent.com/Lutif/Lutif/output/fleet/react-native-animated-rating.svg" width="32%" alt="react-native-animated-rating: animated star ratings for React Native" /></a>
+  <a href="https://github.com/Lutif/ProductiveU"><img src="https://raw.githubusercontent.com/Lutif/Lutif/output/fleet/ProductiveU.svg" width="32%" alt="ProductiveU: shows where your time goes" /></a>
+  <a href="https://github.com/Lutif/go-social"><img src="https://raw.githubusercontent.com/Lutif/Lutif/output/fleet/go-social.svg" width="32%" alt="go-social: a social network backend in Go" /></a>
+</p>
+
+<p align="center">
+  <a href="https://lutif.github.io/Lutif/galaxy/"><img src="https://raw.githubusercontent.com/Lutif/Lutif/output/galaxy.svg" width="100%" alt="All my public repos as a galaxy, one star system per language. Click to explore it in 3D." /></a>
+</p>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Lutif/Lutif/output/skyline.svg" width="100%" alt="A 3D skyline of my GitHub contributions over the last 12 months, one tower per day, with the busiest days in gold." />
