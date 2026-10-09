@@ -15,7 +15,6 @@ Outside work I build small tools and learning projects:
 - [**go-dojo**](https://github.com/Lutif/go-dojo) is a desktop app for learning Go: 250+ exercises with tests, a skill tree and a built-in editor.
 - [**slack-proofreader**](https://github.com/Lutif/slack-proofreader) adds a Proofread button to Slack that checks your message with Claude before you send it.
 - [**sentry-to-slack**](https://github.com/Lutif/sentry-to-slack) sends Sentry error alerts to Slack for free, from a Vercel edge function.
-- I sent a [fix for a per-request memory leak](https://github.com/greguintow/nestjs-sentry/pull/1) to `nestjs-sentry`.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Lutif/Lutif/output/skyline.svg" width="100%" alt="A 3D skyline of my GitHub contributions over the last 12 months, one tower per day, with the busiest days in gold." />
