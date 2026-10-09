@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="300" height="330" role="img" aria-labelledby="t">
+<title id="t">react-native-animated-rating: Animated star ratings for React Native</title>
+<style>
+.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif}
+.name{font-size:15px;font-weight:700;fill:#e6ecff}
+.tag{font-size:12.96px;fill:#8a95b8}
+.meta{font-size:13px;fill:#8a95b8}
+.starred{font-size:13px;font-weight:600;fill:#f5bd4f}
+.surface{animation:drift 30.92s ease-in-out infinite alternate}
+.moon{animation-duration:18.55s;animation-timing-function:linear;animation-iteration-count:infinite}
+.tw{animation:tw 4s ease-in-out infinite}
+@keyframes drift{from{transform:translateX(-22px)}to{transform:translateX(22px)}}
+@keyframes tw{0%,100%{opacity:.95}50%{opacity:.12}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="frame"><rect width="300" height="330" rx="18"/></clipPath>
+<clipPath id="body"><circle cx="150" cy="122" r="58"/></clipPath>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1230"/><stop offset=".7" stop-color="#050812"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".37" r=".5"><stop offset="0" stop-color="#eec636" stop-opacity=".28"/><stop offset="1" stop-color="#eec636" stop-opacity="0"/></radialGradient>
+<radialGradient id="surface" cx=".34" cy=".3" r=".8"><stop offset="0" stop-color="#f7e39b"/><stop offset=".45" stop-color="#eec636"/><stop offset="1" stop-color="#463d1c"/></radialGradient>
+<radialGradient id="halo"><stop offset=".74" stop-color="#f7e39b" stop-opacity="0"/><stop offset=".8" stop-color="#f7e39b" stop-opacity=".45"/><stop offset="1" stop-color="#f7e39b" stop-opacity="0"/></radialGradient>
+<linearGradient id="night" x1=".2" y1=".1" x2=".9" y2=".95"><stop offset="0" stop-color="#02040c" stop-opacity="0"/><stop offset=".5" stop-color="#02040c" stop-opacity=".15"/><stop offset="1" stop-color="#02040c" stop-opacity=".9"/></linearGradient>
+</defs>
+<g clip-path="url(#frame)">
+<rect width="300" height="330" fill="url(#bg)"/>
+<rect width="300" height="330" fill="url(#glow)"/>
+<circle cx="261.34" cy="176.31" r="0.43" fill="#e6ecff" opacity="0.29"/><circle cx="174.11" cy="23.28" r="0.35" fill="#e6ecff" opacity="0.34"/><circle cx="194.19" cy="1.81" r="1.07" fill="#e6ecff" opacity="0.7" class="tw" style="animation-delay:-4.49s;animation-duration:5.72s"/><circle cx="24.76" cy="44.86" r="1.37" fill="#e6ecff" opacity="0.79" class="tw" style="animation-delay:-1.67s;animation-duration:4.76s"/><circle cx="258.19" cy="54.73" r="1.1" fill="#cfe6ff" opacity="0.26" class="tw" style="animation-delay:-0s;animation-duration:5.02s"/><circle cx="50.44" cy="161.98" r="0.51" fill="#e6ecff" opacity="0.28"/><circle cx="59.5" cy="178.1" r="0.36" fill="#ffe3ad" opacity="0.59"/><circle cx="244.05" cy="70.99" r="1.03" fill="#e6ecff" opacity="0.71" class="tw" style="animation-delay:-5.95s;animation-duration:4.39s"/><circle cx="42.86" cy="199.5" r="0.36" fill="#e6ecff" opacity="0.5"/><circle cx="130.97" cy="193.06" r="0.41" fill="#e6ecff" opacity="0.63"/><circle cx="19.94" cy="194.95" r="0.39" fill="#e6ecff" opacity="0.59"/><circle cx="269.55" cy="60.11" r="1.51" fill="#e6ecff" opacity="0.29"/><circle cx="83.68" cy="84.97" r="0.47" fill="#e6ecff" opacity="0.69"/><circle cx="221.3" cy="26.63" r="0.38" fill="#e6ecff" opacity="0.39"/><circle cx="183.81" cy="21.03" r="0.67" fill="#ffe3ad" opacity="0.29"/><circle cx="40.81" cy="107.92" r="0.35" fill="#e6ecff" opacity="0.28"/><circle cx="42.88" cy="32.25" r="0.49" fill="#e6ecff" opacity="0.46"/><circle cx="252.63" cy="73.33" r="0.68" fill="#e6ecff" opacity="0.39"/><circle cx="10.82" cy="128.28" r="0.43" fill="#e6ecff" opacity="0.5"/><circle cx="29.04" cy="184.53" r="1.33" fill="#cfe6ff" opacity="0.28"/><circle cx="69.03" cy="57.55" r="1.49" fill="#e6ecff" opacity="0.79"/><circle cx="155" cy="47.76" r="0.37" fill="#e6ecff" opacity="0.77"/><circle cx="48.84" cy="171.95" r="0.37" fill="#e6ecff" opacity="0.48"/><circle cx="238.89" cy="103.49" r="0.38" fill="#e6ecff" opacity="0.78"/><circle cx="169.2" cy="39.58" r="0.6" fill="#e6ecff" opacity="0.88"/><circle cx="21.87" cy="55.48" r="0.36" fill="#cfe6ff" opacity="0.86"/><circle cx="253.79" cy="119.3" r="1.17" fill="#e6ecff" opacity="0.46"/><circle cx="271.71" cy="59.17" r="0.84" fill="#cfe6ff" opacity="0.8"/><circle cx="68.34" cy="46.92" r="0.47" fill="#e6ecff" opacity="0.84"/><circle cx="257" cy="161.8" r="0.87" fill="#e6ecff" opacity="0.63"/><circle cx="181.28" cy="7.87" r="1.09" fill="#e6ecff" opacity="0.63"/><circle cx="238.79" cy="33.86" r="0.79" fill="#e6ecff" opacity="0.87"/><circle cx="39.44" cy="48.69" r="1.18" fill="#ffe3ad" opacity="0.51"/><circle cx="259.06" cy="204.46" r="0.41" fill="#e6ecff" opacity="0.26"/>
+<path d="M250.54 98.53A103.24 24.36 -13.14 0 0 49.46 145.47" fill="none" stroke="#f7e39b" stroke-opacity="0.3" stroke-width="8"/><path d="M234.72 102.22A87 20.299999999999997 -13.14 0 0 65.28 141.78" fill="none" stroke="#f7e39b" stroke-opacity="0.2" stroke-width="3"/>
+
+<circle cx="150" cy="122" r="74" fill="url(#halo)"/>
+<circle cx="150" cy="122" r="58" fill="url(#surface)"/>
+<g clip-path="url(#body)"><g transform="translate(150 122)"><g class="surface"><ellipse cx="3.71" cy="-47.89" rx="98.6" ry="3.61" fill="#f7e39b" opacity="0.42"/><ellipse cx="-11.5" cy="-36.37" rx="98.6" ry="8.44" fill="#463d1c" opacity="0.46"/><ellipse cx="1.09" cy="-22.48" rx="98.6" ry="7.06" fill="#463d1c" opacity="0.29"/><ellipse cx="-2.68" cy="-5.88" rx="98.6" ry="6.97" fill="#f7e39b" opacity="0.47"/><ellipse cx="8.32" cy="5.23" rx="98.6" ry="4.56" fill="#463d1c" opacity="0.38"/><ellipse cx="-11.65" cy="23.92" rx="98.6" ry="3.5" fill="#463d1c" opacity="0.51"/><ellipse cx="11.82" cy="39.22" rx="98.6" ry="5.04" fill="#f7e39b" opacity="0.51"/><ellipse cx="6.34" cy="51.04" rx="98.6" ry="5.63" fill="#f7e39b" opacity="0.28"/></g></g></g>
+<circle cx="150" cy="122" r="58" fill="url(#night)"/>
+<path d="M250.54 98.53A103.24 24.36 -13.14 0 1 49.46 145.47" fill="none" stroke="#f7e39b" stroke-opacity="0.6" stroke-width="8"/><path d="M234.72 102.22A87 20.299999999999997 -13.14 0 1 65.28 141.78" fill="none" stroke="#f7e39b" stroke-opacity="0.4" stroke-width="3"/>
+
+<text x="24" y="238" class="sans name">react-native-animated-rating</text>
+<text x="24" y="264" class="sans tag">Animated star ratings for React Native</text>
+<circle cx="29" cy="295" r="5" fill="#f1e05a"/>
+<text x="41" y="300" class="sans meta">JavaScript</text>
+<text x="276" y="300" text-anchor="end" class="sans starred">★ 3</text>
+</g>
+<rect x=".5" y=".5" width="299" height="329" rx="17.5" fill="none" stroke="#5cc8ff" stroke-opacity=".14"/>
+</svg>

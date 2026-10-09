@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="300" height="330" role="img" aria-labelledby="t">
+<title id="t">go-dojo: Desktop IDE with 250+ Go exercises</title>
+<style>
+.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif}
+.name{font-size:21px;font-weight:700;fill:#e6ecff}
+.tag{font-size:14px;fill:#8a95b8}
+.meta{font-size:13px;fill:#8a95b8}
+.starred{font-size:13px;font-weight:600;fill:#f5bd4f}
+.surface{animation:drift 32.53s ease-in-out infinite alternate}
+.moon{animation-duration:19.52s;animation-timing-function:linear;animation-iteration-count:infinite}
+.tw{animation:tw 4s ease-in-out infinite}
+@keyframes drift{from{transform:translateX(-22px)}to{transform:translateX(22px)}}
+@keyframes tw{0%,100%{opacity:.95}50%{opacity:.12}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="frame"><rect width="300" height="330" rx="18"/></clipPath>
+<clipPath id="body"><circle cx="150" cy="122" r="58"/></clipPath>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1230"/><stop offset=".7" stop-color="#050812"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".37" r=".5"><stop offset="0" stop-color="#4a8ed2" stop-opacity=".28"/><stop offset="1" stop-color="#4a8ed2" stop-opacity="0"/></radialGradient>
+<radialGradient id="surface" cx=".34" cy=".3" r=".8"><stop offset="0" stop-color="#a5c7e9"/><stop offset=".45" stop-color="#4a8ed2"/><stop offset="1" stop-color="#182e48"/></radialGradient>
+<radialGradient id="halo"><stop offset=".74" stop-color="#a5c7e9" stop-opacity="0"/><stop offset=".8" stop-color="#a5c7e9" stop-opacity=".45"/><stop offset="1" stop-color="#a5c7e9" stop-opacity="0"/></radialGradient>
+<linearGradient id="night" x1=".2" y1=".1" x2=".9" y2=".95"><stop offset="0" stop-color="#02040c" stop-opacity="0"/><stop offset=".5" stop-color="#02040c" stop-opacity=".15"/><stop offset="1" stop-color="#02040c" stop-opacity=".9"/></linearGradient>
+</defs>
+<g clip-path="url(#frame)">
+<rect width="300" height="330" fill="url(#bg)"/>
+<rect width="300" height="330" fill="url(#glow)"/>
+<circle cx="178.62" cy="54.23" r="0.58" fill="#e6ecff" opacity="0.74"/><circle cx="277.84" cy="19.1" r="0.37" fill="#e6ecff" opacity="0.4"/><circle cx="277.5" cy="95.86" r="0.83" fill="#cfe6ff" opacity="0.72" class="tw" style="animation-delay:-5.09s;animation-duration:6.02s"/><circle cx="259.41" cy="84.85" r="0.37" fill="#e6ecff" opacity="0.4"/><circle cx="26.33" cy="4.63" r="0.35" fill="#e6ecff" opacity="0.63"/><circle cx="258.83" cy="95.08" r="1.32" fill="#e6ecff" opacity="0.42" class="tw" style="animation-delay:-0.74s;animation-duration:5.15s"/><circle cx="155.91" cy="32.99" r="0.35" fill="#e6ecff" opacity="0.81"/><circle cx="54.51" cy="129.79" r="1.28" fill="#e6ecff" opacity="0.71" class="tw" style="animation-delay:-4.83s;animation-duration:6.31s"/><circle cx="52.11" cy="106.39" r="0.43" fill="#e6ecff" opacity="0.48"/><circle cx="228.67" cy="77.01" r="0.36" fill="#e6ecff" opacity="0.56"/><circle cx="228.89" cy="170.19" r="0.51" fill="#e6ecff" opacity="0.83"/><circle cx="276.24" cy="25.19" r="1.42" fill="#e6ecff" opacity="0.6" class="tw" style="animation-delay:-4.31s;animation-duration:4.24s"/><circle cx="117.31" cy="195.31" r="0.82" fill="#e6ecff" opacity="0.26"/><circle cx="269.41" cy="105.07" r="0.35" fill="#e6ecff" opacity="0.89"/><circle cx="43.66" cy="30.95" r="1.32" fill="#e6ecff" opacity="0.47"/><circle cx="279.47" cy="62.82" r="0.87" fill="#e6ecff" opacity="0.69"/><circle cx="22.07" cy="78.02" r="0.41" fill="#e6ecff" opacity="0.33"/><circle cx="283.29" cy="29.48" r="1.45" fill="#e6ecff" opacity="0.87"/><circle cx="262.4" cy="161.21" r="0.35" fill="#cfe6ff" opacity="0.66"/><circle cx="7.49" cy="186.2" r="1.46" fill="#e6ecff" opacity="0.5"/><circle cx="267.85" cy="202.83" r="0.4" fill="#e6ecff" opacity="0.65"/><circle cx="231.08" cy="171.16" r="0.84" fill="#e6ecff" opacity="0.85"/><circle cx="131.23" cy="39.78" r="1.45" fill="#e6ecff" opacity="0.5"/><circle cx="110.25" cy="195.2" r="0.84" fill="#e6ecff" opacity="0.61"/><circle cx="275.31" cy="22.03" r="0.37" fill="#e6ecff" opacity="0.51"/><circle cx="239.91" cy="33.84" r="0.63" fill="#e6ecff" opacity="0.89"/><circle cx="8.47" cy="120.89" r="0.36" fill="#e6ecff" opacity="0.35"/><circle cx="192.51" cy="3.94" r="0.63" fill="#e6ecff" opacity="0.6"/><circle cx="35.77" cy="37.22" r="0.39" fill="#e6ecff" opacity="0.79"/><circle cx="76.87" cy="72.58" r="1.32" fill="#e6ecff" opacity="0.57"/><circle cx="77.37" cy="153.95" r="0.36" fill="#e6ecff" opacity="0.59"/><circle cx="12.66" cy="10.28" r="0.38" fill="#e6ecff" opacity="0.55"/><circle cx="273.78" cy="198.96" r="0.38" fill="#e6ecff" opacity="0.58"/><circle cx="294.11" cy="70.33" r="0.39" fill="#e6ecff" opacity="0.87"/>
+<path d="M252.43 109.06A103.24 24.36 -7.2 0 0 47.57 134.94" fill="none" stroke="#a5c7e9" stroke-opacity="0.3" stroke-width="8"/><path d="M236.31 111.1A87 20.299999999999997 -7.2 0 0 63.69 132.9" fill="none" stroke="#a5c7e9" stroke-opacity="0.2" stroke-width="3"/>
+
+<circle cx="150" cy="122" r="74" fill="url(#halo)"/>
+<circle cx="150" cy="122" r="58" fill="url(#surface)"/>
+<g clip-path="url(#body)"><g transform="translate(150 122)"><g class="surface"><ellipse cx="-7.92" cy="-52.27" rx="98.6" ry="6.84" fill="#182e48" opacity="0.23"/><ellipse cx="-5.73" cy="-33.83" rx="98.6" ry="8" fill="#a5c7e9" opacity="0.23"/><ellipse cx="13.13" cy="-24.82" rx="98.6" ry="4.77" fill="#a5c7e9" opacity="0.24"/><ellipse cx="-9.3" cy="-5.12" rx="98.6" ry="4.27" fill="#182e48" opacity="0.32"/><ellipse cx="7.79" cy="9.58" rx="98.6" ry="4.63" fill="#a5c7e9" opacity="0.33"/><ellipse cx="14.57" cy="21.19" rx="98.6" ry="5.54" fill="#a5c7e9" opacity="0.23"/><ellipse cx="-13.61" cy="33.21" rx="98.6" ry="7.11" fill="#a5c7e9" opacity="0.41"/><ellipse cx="8.55" cy="48.42" rx="98.6" ry="6.47" fill="#a5c7e9" opacity="0.38"/></g></g></g>
+<circle cx="150" cy="122" r="58" fill="url(#night)"/>
+<path d="M252.43 109.06A103.24 24.36 -7.2 0 1 47.57 134.94" fill="none" stroke="#a5c7e9" stroke-opacity="0.6" stroke-width="8"/><path d="M236.31 111.1A87 20.299999999999997 -7.2 0 1 63.69 132.9" fill="none" stroke="#a5c7e9" stroke-opacity="0.4" stroke-width="3"/>
+
+<text x="24" y="238" class="sans name">go-dojo</text>
+<text x="24" y="264" class="sans tag">Desktop IDE with 250+ Go exercises</text>
+<circle cx="29" cy="295" r="5" fill="#3178c6"/>
+<text x="41" y="300" class="sans meta">TypeScript</text>
+<text x="276" y="300" text-anchor="end" class="sans starred">★ 6</text>
+</g>
+<rect x=".5" y=".5" width="299" height="329" rx="17.5" fill="none" stroke="#5cc8ff" stroke-opacity=".14"/>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="300" height="330" role="img" aria-labelledby="t">
+<title id="t">slack-proofreader: Proofreads Slack messages with Claude</title>
+<style>
+.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif}
+.name{font-size:21px;font-weight:700;fill:#e6ecff}
+.tag{font-size:13.31px;fill:#8a95b8}
+.meta{font-size:13px;fill:#8a95b8}
+.starred{font-size:13px;font-weight:600;fill:#f5bd4f}
+.surface{animation:drift 39.13s ease-in-out infinite alternate}
+.moon{animation-duration:23.48s;animation-timing-function:linear;animation-iteration-count:infinite}
+.tw{animation:tw 4s ease-in-out infinite}
+@keyframes drift{from{transform:translateX(-22px)}to{transform:translateX(22px)}}
+@keyframes tw{0%,100%{opacity:.95}50%{opacity:.12}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="frame"><rect width="300" height="330" rx="18"/></clipPath>
+<clipPath id="body"><circle cx="150" cy="122" r="58"/></clipPath>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1230"/><stop offset=".7" stop-color="#050812"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".37" r=".5"><stop offset="0" stop-color="#f2cb69" stop-opacity=".28"/><stop offset="1" stop-color="#f2cb69" stop-opacity="0"/></radialGradient>
+<radialGradient id="surface" cx=".34" cy=".3" r=".8"><stop offset="0" stop-color="#f9e5b4"/><stop offset=".45" stop-color="#f2cb69"/><stop offset="1" stop-color="#473f2a"/></radialGradient>
+<radialGradient id="halo"><stop offset=".74" stop-color="#f9e5b4" stop-opacity="0"/><stop offset=".8" stop-color="#f9e5b4" stop-opacity=".45"/><stop offset="1" stop-color="#f9e5b4" stop-opacity="0"/></radialGradient>
+<linearGradient id="night" x1=".2" y1=".1" x2=".9" y2=".95"><stop offset="0" stop-color="#02040c" stop-opacity="0"/><stop offset=".5" stop-color="#02040c" stop-opacity=".15"/><stop offset="1" stop-color="#02040c" stop-opacity=".9"/></linearGradient>
+</defs>
+<g clip-path="url(#frame)">
+<rect width="300" height="330" fill="url(#bg)"/>
+<rect width="300" height="330" fill="url(#glow)"/>
+<circle cx="231.81" cy="96.94" r="0.65" fill="#e6ecff" opacity="0.38"/><circle cx="16.76" cy="121.78" r="0.35" fill="#e6ecff" opacity="0.3"/><circle cx="22.64" cy="2.48" r="0.35" fill="#e6ecff" opacity="0.36"/><circle cx="232.79" cy="109.55" r="0.35" fill="#e6ecff" opacity="0.71"/><circle cx="291.79" cy="142.61" r="0.59" fill="#e6ecff" opacity="0.45"/><circle cx="29.12" cy="100.06" r="0.35" fill="#e6ecff" opacity="0.52"/><circle cx="238.38" cy="176.57" r="0.35" fill="#cfe6ff" opacity="0.66"/><circle cx="85.88" cy="46.64" r="0.35" fill="#e6ecff" opacity="0.65"/><circle cx="230.29" cy="66.05" r="0.56" fill="#e6ecff" opacity="0.84"/><circle cx="142.1" cy="6.06" r="1.01" fill="#ffe3ad" opacity="0.5" class="tw" style="animation-delay:-3.41s;animation-duration:5.64s"/><circle cx="257.74" cy="41.89" r="0.38" fill="#e6ecff" opacity="0.25"/><circle cx="64.85" cy="166.47" r="0.35" fill="#e6ecff" opacity="0.39"/><circle cx="128.77" cy="36.22" r="0.5" fill="#e6ecff" opacity="0.75"/><circle cx="246.95" cy="153.61" r="0.36" fill="#e6ecff" opacity="0.69"/><circle cx="229.82" cy="12.97" r="0.44" fill="#cfe6ff" opacity="0.28"/><circle cx="25.85" cy="64.7" r="0.84" fill="#e6ecff" opacity="0.64" class="tw" style="animation-delay:-0.32s;animation-duration:4.3s"/><circle cx="183.89" cy="2.47" r="0.57" fill="#e6ecff" opacity="0.61"/><circle cx="233.79" cy="102.27" r="0.51" fill="#e6ecff" opacity="0.33"/><circle cx="13.33" cy="7.35" r="0.35" fill="#cfe6ff" opacity="0.37"/><circle cx="276.9" cy="127.99" r="0.35" fill="#e6ecff" opacity="0.86"/><circle cx="12.04" cy="204.37" r="1.14" fill="#e6ecff" opacity="0.34" class="tw" style="animation-delay:-2.39s;animation-duration:5.81s"/><circle cx="282.1" cy="54.38" r="1.19" fill="#ffe3ad" opacity="0.68" class="tw" style="animation-delay:-1.11s;animation-duration:5.99s"/><circle cx="157.97" cy="10.76" r="0.81" fill="#e6ecff" opacity="0.71"/><circle cx="259.27" cy="71.67" r="0.35" fill="#e6ecff" opacity="0.7"/><circle cx="48.74" cy="177.03" r="0.38" fill="#cfe6ff" opacity="0.31"/><circle cx="86.04" cy="52.15" r="0.37" fill="#e6ecff" opacity="0.37"/><circle cx="94.81" cy="62.56" r="1.13" fill="#ffe3ad" opacity="0.62"/><circle cx="247.13" cy="149.46" r="0.36" fill="#e6ecff" opacity="0.66"/><circle cx="240.35" cy="189.42" r="0.36" fill="#e6ecff" opacity="0.5"/><circle cx="75.04" cy="54.13" r="0.85" fill="#e6ecff" opacity="0.59"/><circle cx="42.34" cy="199.05" r="0.37" fill="#e6ecff" opacity="0.4"/><circle cx="6.12" cy="64.86" r="0.54" fill="#e6ecff" opacity="0.4"/><circle cx="241.98" cy="132.22" r="0.44" fill="#e6ecff" opacity="0.44"/><circle cx="131.42" cy="44.25" r="0.78" fill="#e6ecff" opacity="0.5"/>
+
+
+<circle cx="150" cy="122" r="74" fill="url(#halo)"/>
+<circle cx="150" cy="122" r="58" fill="url(#surface)"/>
+<g clip-path="url(#body)"><g transform="translate(150 122)"><g class="surface"><ellipse cx="-0.01" cy="-50.26" rx="98.6" ry="8.17" fill="#473f2a" opacity="0.23"/><ellipse cx="-8.86" cy="-35.49" rx="98.6" ry="5.38" fill="#f9e5b4" opacity="0.49"/><ellipse cx="12.22" cy="-18.01" rx="98.6" ry="7.27" fill="#f9e5b4" opacity="0.48"/><ellipse cx="-8.47" cy="-10.87" rx="98.6" ry="4.59" fill="#f9e5b4" opacity="0.41"/><ellipse cx="-8.57" cy="11.05" rx="98.6" ry="2.79" fill="#f9e5b4" opacity="0.44"/><ellipse cx="1.53" cy="23.21" rx="98.6" ry="3.29" fill="#473f2a" opacity="0.48"/><ellipse cx="5.48" cy="35.61" rx="98.6" ry="5.2" fill="#f9e5b4" opacity="0.51"/><ellipse cx="-5.69" cy="51.8" rx="98.6" ry="7.31" fill="#f9e5b4" opacity="0.44"/></g></g></g>
+<circle cx="150" cy="122" r="58" fill="url(#night)"/>
+
+
+<text x="24" y="238" class="sans name">slack-proofreader</text>
+<text x="24" y="264" class="sans tag">Proofreads Slack messages with Claude</text>
+<circle cx="29" cy="295" r="5" fill="#f1e05a"/>
+<text x="41" y="300" class="sans meta">JavaScript</text>
+
+</g>
+<rect x=".5" y=".5" width="299" height="329" rx="17.5" fill="none" stroke="#5cc8ff" stroke-opacity=".14"/>
+</svg>

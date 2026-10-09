@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="300" height="330" role="img" aria-labelledby="t">
+<title id="t">ProductiveU: Shows where your time goes</title>
+<style>
+.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif}
+.name{font-size:21px;font-weight:700;fill:#e6ecff}
+.tag{font-size:14px;fill:#8a95b8}
+.meta{font-size:13px;fill:#8a95b8}
+.starred{font-size:13px;font-weight:600;fill:#f5bd4f}
+.surface{animation:drift 33.48s ease-in-out infinite alternate}
+.moon{animation-duration:20.09s;animation-timing-function:linear;animation-iteration-count:infinite}
+.tw{animation:tw 4s ease-in-out infinite}
+@keyframes drift{from{transform:translateX(-22px)}to{transform:translateX(22px)}}
+@keyframes tw{0%,100%{opacity:.95}50%{opacity:.12}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="frame"><rect width="300" height="330" rx="18"/></clipPath>
+<clipPath id="body"><circle cx="150" cy="122" r="58"/></clipPath>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1230"/><stop offset=".7" stop-color="#050812"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".37" r=".5"><stop offset="0" stop-color="#e6a1a4" stop-opacity=".28"/><stop offset="1" stop-color="#e6a1a4" stop-opacity="0"/></radialGradient>
+<radialGradient id="surface" cx=".34" cy=".3" r=".8"><stop offset="0" stop-color="#f3d0d2"/><stop offset=".45" stop-color="#e6a1a4"/><stop offset="1" stop-color="#44333b"/></radialGradient>
+<radialGradient id="halo"><stop offset=".74" stop-color="#f3d0d2" stop-opacity="0"/><stop offset=".8" stop-color="#f3d0d2" stop-opacity=".45"/><stop offset="1" stop-color="#f3d0d2" stop-opacity="0"/></radialGradient>
+<linearGradient id="night" x1=".2" y1=".1" x2=".9" y2=".95"><stop offset="0" stop-color="#02040c" stop-opacity="0"/><stop offset=".5" stop-color="#02040c" stop-opacity=".15"/><stop offset="1" stop-color="#02040c" stop-opacity=".9"/></linearGradient>
+</defs>
+<g clip-path="url(#frame)">
+<rect width="300" height="330" fill="url(#bg)"/>
+<rect width="300" height="330" fill="url(#glow)"/>
+<circle cx="216.76" cy="174.44" r="0.9" fill="#e6ecff" opacity="0.81" class="tw" style="animation-delay:-5.51s;animation-duration:5.51s"/><circle cx="97.29" cy="65.88" r="0.37" fill="#e6ecff" opacity="0.85"/><circle cx="13.05" cy="204.05" r="0.35" fill="#ffe3ad" opacity="0.76"/><circle cx="223.44" cy="22.31" r="0.52" fill="#e6ecff" opacity="0.55"/><circle cx="120.81" cy="39.07" r="0.47" fill="#e6ecff" opacity="0.47"/><circle cx="17.19" cy="145.38" r="0.39" fill="#e6ecff" opacity="0.38"/><circle cx="149.93" cy="0.56" r="0.38" fill="#e6ecff" opacity="0.72"/><circle cx="284.54" cy="150.08" r="1.4" fill="#e6ecff" opacity="0.28" class="tw" style="animation-delay:-5.49s;animation-duration:5.41s"/><circle cx="270.82" cy="119.94" r="0.88" fill="#cfe6ff" opacity="0.77" class="tw" style="animation-delay:-4.18s;animation-duration:6.32s"/><circle cx="12.99" cy="197.66" r="0.45" fill="#e6ecff" opacity="0.5"/><circle cx="230.57" cy="91.78" r="1.06" fill="#e6ecff" opacity="0.39" class="tw" style="animation-delay:-0.61s;animation-duration:6.59s"/><circle cx="279.8" cy="30.61" r="0.35" fill="#cfe6ff" opacity="0.86"/><circle cx="208.87" cy="33.31" r="0.43" fill="#e6ecff" opacity="0.75"/><circle cx="264.79" cy="134.67" r="0.43" fill="#e6ecff" opacity="0.4"/><circle cx="32.32" cy="136.46" r="0.39" fill="#e6ecff" opacity="0.33"/><circle cx="218.55" cy="86.29" r="0.41" fill="#e6ecff" opacity="0.6"/><circle cx="75.23" cy="153.15" r="0.9" fill="#e6ecff" opacity="0.29"/><circle cx="212.85" cy="43.16" r="0.46" fill="#e6ecff" opacity="0.7"/><circle cx="239.73" cy="15.75" r="1.41" fill="#e6ecff" opacity="0.89"/><circle cx="70.57" cy="82" r="0.35" fill="#e6ecff" opacity="0.55"/><circle cx="61.39" cy="24.86" r="0.45" fill="#e6ecff" opacity="0.75"/><circle cx="179.11" cy="49.94" r="0.35" fill="#e6ecff" opacity="0.61"/><circle cx="145.91" cy="27.91" r="0.37" fill="#e6ecff" opacity="0.41"/><circle cx="70.31" cy="156.49" r="0.35" fill="#e6ecff" opacity="0.78"/><circle cx="264.49" cy="194.63" r="0.98" fill="#e6ecff" opacity="0.38"/><circle cx="231.02" cy="104.02" r="0.92" fill="#e6ecff" opacity="0.45"/><circle cx="90.83" cy="74.14" r="1.55" fill="#cfe6ff" opacity="0.54"/><circle cx="6.02" cy="35.41" r="0.48" fill="#e6ecff" opacity="0.79"/><circle cx="45.26" cy="84.65" r="0.4" fill="#e6ecff" opacity="0.67"/><circle cx="218.63" cy="99.42" r="0.35" fill="#e6ecff" opacity="0.28"/><circle cx="192.59" cy="21.07" r="1.42" fill="#cfe6ff" opacity="0.3"/><circle cx="129.72" cy="31.92" r="0.38" fill="#e6ecff" opacity="0.46"/><circle cx="184.07" cy="23.61" r="0.36" fill="#e6ecff" opacity="0.64"/><circle cx="279.73" cy="9.68" r="1.06" fill="#e6ecff" opacity="0.65"/>
+
+
+<circle cx="150" cy="122" r="74" fill="url(#halo)"/>
+<circle cx="150" cy="122" r="58" fill="url(#surface)"/>
+<g clip-path="url(#body)"><g transform="translate(150 122)"><g class="surface"><circle cx="55.36" cy="29.09" r="11.86" fill="#44333b" opacity=".45"/><circle cx="53.22" cy="26.95" r="9.49" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="-43.51" cy="7.26" r="11.55" fill="#44333b" opacity=".45"/><circle cx="-45.59" cy="5.18" r="9.24" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="-30.64" cy="40.51" r="3.27" fill="#44333b" opacity=".45"/><circle cx="-31.23" cy="39.92" r="2.62" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="63.51" cy="21.66" r="10.89" fill="#44333b" opacity=".45"/><circle cx="61.55" cy="19.7" r="8.72" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="-61.18" cy="15.29" r="6.65" fill="#44333b" opacity=".45"/><circle cx="-62.37" cy="14.1" r="5.32" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="-4.18" cy="12.06" r="11.65" fill="#44333b" opacity=".45"/><circle cx="-6.27" cy="9.96" r="9.32" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="-39.73" cy="19.23" r="7.87" fill="#44333b" opacity=".45"/><circle cx="-41.15" cy="17.82" r="6.29" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="10.86" cy="3.06" r="8.31" fill="#44333b" opacity=".45"/><circle cx="9.37" cy="1.56" r="6.65" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="22.11" cy="0.93" r="10.24" fill="#44333b" opacity=".45"/><circle cx="20.27" cy="-0.92" r="8.2" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="68.81" cy="10.22" r="11.45" fill="#44333b" opacity=".45"/><circle cx="66.75" cy="8.16" r="9.16" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/><circle cx="-49.39" cy="49.15" r="7.12" fill="#44333b" opacity=".45"/><circle cx="-50.67" cy="47.87" r="5.7" fill="none" stroke="#f3d0d2" stroke-opacity=".25" stroke-width="1.2"/></g></g></g>
+<circle cx="150" cy="122" r="58" fill="url(#night)"/>
+
+
+<text x="24" y="238" class="sans name">ProductiveU</text>
+<text x="24" y="264" class="sans tag">Shows where your time goes</text>
+<circle cx="29" cy="295" r="5" fill="#dea584"/>
+<text x="41" y="300" class="sans meta">Rust</text>
+
+</g>
+<rect x=".5" y=".5" width="299" height="329" rx="17.5" fill="none" stroke="#5cc8ff" stroke-opacity=".14"/>
+</svg>
